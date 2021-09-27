@@ -116,4 +116,3 @@ C:\Users\yordan.georgiev\source\repos\QuickbaseWebdriverIO\QuickbaseWebdriverIO\
 C:\Users\yordan.georgiev\source\repos\QuickbaseWebdriverIO\QuickbaseWebdriverIO\obj\Debug\net5.0\ref\QuickbaseWebdriverIO.dll
 C:\Users\yordan.georgiev\source\repos\QuickbaseWebdriverIO\QuickbaseWebdriverIO\obj\Debug\net5.0\QuickbaseWebdriverIO.pdb
 C:\Users\yordan.georgiev\source\repos\QuickbaseWebdriverIO\QuickbaseWebdriverIO\obj\Debug\net5.0\QuickbaseWebdriverIO.genruntimeconfig.cache
-C:\Users\yordan.georgiev\source\repos\QuickbaseWebdriverIO\QuickbaseWebdriverIO\obj\Debug\net5.0\QuickbaseWebdriverIO.csprojAssemblyReference.cache

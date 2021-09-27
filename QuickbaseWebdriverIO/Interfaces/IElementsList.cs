@@ -7,8 +7,6 @@ namespace QuickbaseWebdriverIO.Interfaces
     {
         int Count { get; }
 
-        IElement this[int i] { get; }
-
         void ForEach(Action<IElement> action);
     }
 }

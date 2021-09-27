@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using QuickbaseWebdriverIO.Interfaces;
@@ -61,25 +56,11 @@ namespace QuickbaseWebdriverIO.Elements
 
         public By By { get; }
 
-        public string Value => NativeElement?.GetAttribute("value");
-
         public string Text => NativeElement?.Text;
-
-        public bool? Enabled => NativeElement?.Enabled;
-
-        public bool? IsRequired => Convert.ToBoolean(NativeElement?.GetAttribute("required"));
 
         public string InnerText => GetAttribute("innerText");
 
         public string InnerHtml => GetAttribute("innerHTML");
-
-        public int Width => NativeElement.Size.Width;
-
-        public int Height => NativeElement.Size.Height;
-
-        public Point ElementCoordinates => NativeElement.Location;
-
-        public bool ElementIsChecked => (bool)_js.ExecuteScript("return arguments[0].checked;", NativeElement);
 
         public bool IsDisplayed
         {
@@ -103,8 +84,6 @@ namespace QuickbaseWebdriverIO.Elements
         }
 
         public IWebDriver NativeDriver { get; }
-
-        Point IElement.ElementCoordinates => throw new NotImplementedException();
 
         public void Focus()
         {
@@ -141,7 +120,7 @@ namespace QuickbaseWebdriverIO.Elements
         public void Click()
         {
             WebDriverWait wait = new(NativeDriver, TimeSpan.FromMilliseconds(ConfigurationService.GetSection<TimeoutSettings>().GeneralTimeout));
-            wait.Until(c=>SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(NativeElement) != null);
+            wait.Until(c=>SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By) != null);
 
             if (ConfigurationService.GetSection<WebSettings>().ScrollToElements)
             {
@@ -157,36 +136,6 @@ namespace QuickbaseWebdriverIO.Elements
             NativeElement?.SendKeys(text);
         }
 
-        public void SelectOptionByText(string selectOption)
-        {
-            new SelectElement(NativeElement).SelectByText(selectOption);
-        }
-
-        public void SelectOptionByValue(string selectOption)
-        {
-            new SelectElement(NativeElement).SelectByValue(selectOption);
-        }
-
-        public void Check()
-        {
-            _js.ExecuteScript("var checkbox = arguments[0]; if (!checkbox.checked){checkbox.click()};", NativeElement);
-        }
-
-        public void Uncheck()
-        {
-            _js.ExecuteScript("var checkbox = arguments[0]; if (checkbox.checked){checkbox.click()};", NativeElement);
-        }
-
-        public void RemoveHiddenFromElement()
-        {
-            _js.ExecuteScript("arguments[0].hidden = false;", NativeElement);
-        }
-
-        public void ClearElementWithJavaScript()
-        {
-            _js.ExecuteScript("arguments[0].value = \"\";", NativeElement);
-        }
-
         public IElement CreateElement(By locator)
         {
             return new Element(NativeDriver, locator, this);
@@ -195,11 +144,6 @@ namespace QuickbaseWebdriverIO.Elements
         public IElementsList CreateElements(By locator)
         {
             return new ElementsList(NativeDriver, locator);
-        }
-
-        public void JSClick()
-        {
-            _js.ExecuteScript("arguments[0].click();", NativeElement);
         }
     }
 }

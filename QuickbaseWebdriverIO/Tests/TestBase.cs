@@ -26,23 +26,13 @@ namespace QuickbaseWebdriverIO.Tests
         public void Init()
         {
             InitDriver(_browserName);
-            ClassInit();
         }
 
-        public virtual void ClassInit()
-        {
-        }
 
         [OneTimeTearDown]
         public void Dispose()
         {
             Driver.Close();
-        }
-
-        [SetUp]
-        public void TestPreSetup()
-        {
-           
         }
 
         [TearDown]

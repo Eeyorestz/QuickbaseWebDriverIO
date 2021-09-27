@@ -2,8 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using OpenQA.Selenium;
 using QuickbaseWebdriverIO.Browser;
 using QuickbaseWebdriverIO.Interfaces;
@@ -18,6 +16,8 @@ namespace QuickbaseWebdriverIO.Elements
         private readonly IWebDriver _driver;
         private readonly Element _parent;
 
+        public int Count => _elementFinder.FindAll(_by).Count();
+
         public ElementsList(IWebDriver driver, By by, Element parent = null)
         {
             _driver = driver;
@@ -26,10 +26,6 @@ namespace QuickbaseWebdriverIO.Elements
          
             _parent = parent;
         }
-
-        public int Count => _elementFinder.FindAll(_by).Count();
-
-        public IElement this[int i] => GetAndWaitWebDriverElements().ElementAt(i);
 
         public IEnumerator<IElement> GetEnumerator() => GetAndWaitWebDriverElements().GetEnumerator();
 

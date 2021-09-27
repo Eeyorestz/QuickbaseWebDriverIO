@@ -6,11 +6,6 @@
         {
             SearchButton.Click();
             SearchSection.SearchAndSelectExactMatch(searchCriteria);
-        }
-
-        public void ExpandLeftNavigationMenuItem(string leftMenuItem) 
-        {
-            LeftNavigationMenuButton(leftMenuItem).Click();
-        }
+        } 
     }
 }
