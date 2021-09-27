@@ -1,0 +1,16 @@
+{
+  "TimeoutSettings": {
+    "GeneralTimeout": 10000,
+    "AdditionalTimeout": 5000,
+    "SleepInterval": 1000
+  },
+  "WebSettings": {
+    "BaseUrl": "https://webdriver.io/",
+    "ScrollToElements": true
+  },
+  "HeadlessSettings": {
+    "IsEnabled": false,
+    "ScreenshotResolution": "1920,1080",
+    "FullPageScreenshot": false
+  }
+}
